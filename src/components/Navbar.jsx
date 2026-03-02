@@ -12,17 +12,18 @@ const Navbar = () => {
     <nav className="w-full bg-[#f8f6f2] shadow-md fixed top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 md:px-16 py-5 flex items-center justify-between">
         {/* Logo */}
-        <h1 className="text-xl font-bold tracking-widest text-black hover:text-gray-700 transition duration-300 cursor-pointer">
-          WhiteMarble
-        </h1>
+        <Link to="/" className="text-xl font-bold tracking-widest text-black">
+          <img
+            src="/logo1234.png"
+            alt="WhiteMarble Production Logo"
+            className="h-10 md:h-12"
+          />
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-8 items-center">
-          <Link to="/" className={navLink}>
-            Home
-          </Link>
           <Link to="/new-movie" className={navLink}>
-            New Movie
+            Capabilities
           </Link>
           <Link to="/about" className={navLink}>
             About

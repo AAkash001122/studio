@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import FAQSection from "./FAQa";
 import { CheckCircle } from "lucide-react";
+import FooterWithCTA from "./FooterWithCTA";
 
 const TestimonialSection = () => {
   return (
@@ -99,9 +101,9 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const navigate = useNavigate();
   return (
     <>
-      {/* Video Background Hero Section */}
       <section className="relative w-full h-screen overflow-hidden">
         {videos.map((video, index) => (
           <video
@@ -125,7 +127,7 @@ const HeroSection = () => {
               className="text-white font-extrabold leading-[1.1]
                text-2xl sm:text-3xl md:text-5xl lg:text-6xl max-w-4xl mt-24"
             >
-              Looking for a India creative agency that can drive better
+              Looking for a India Rated Production House that can drive better
               <br />
               brand awareness to your business?
             </h1>
@@ -137,10 +139,11 @@ const HeroSection = () => {
             </p>
 
             <button
+              onClick={() => navigate("/look")}
               className="mt-8 px-8 py-4 rounded-full 
-                             bg-black text-white 
-                             hover:bg-white hover:text-black 
-                             transition duration-300"
+             bg-white text-Black 
+             hover:bg-Gray hover:text-black 
+             transition duration-300"
             >
               Change me
             </button>
@@ -148,7 +151,6 @@ const HeroSection = () => {
         </div>
       </section>
 
-      {/* Testimonial Section below hero */}
       <TestimonialSection />
 
       <section className="max-w-7xl mx-auto px-6 md:px-16 py-16 bg-[#fdf9f0]">
@@ -210,16 +212,16 @@ const HeroSection = () => {
 
       <section className="w-full bg-[#d9d6cf]">
         <div className="max-w-7xl mx-auto border-t border-black">
-          {/* Heading */}
+       
           <div className="py-6 px-6">
             <h2 className="text-sm font-semibold tracking-wide">
               Social services we offer
             </h2>
           </div>
 
-          {/* Grid */}
+      
           <div className="grid md:grid-cols-2 border-t border-black">
-            {/* Card 1 */}
+         
             <div className="border-r border-b border-black p-16">
               <div className="mb-6 text-3xl">☰</div>
               <h3 className="font-semibold mb-3">Social Strategy</h3>
@@ -233,7 +235,7 @@ const HeroSection = () => {
               </button>
             </div>
 
-            {/* Card 2 */}
+           
             <div className="border-b border-black p-16">
               <div className="mb-6 text-3xl">▣</div>
               <h3 className="font-semibold mb-3">Content creation</h3>
@@ -247,7 +249,7 @@ const HeroSection = () => {
               </button>
             </div>
 
-            {/* Card 3 */}
+           
             <div className="border-r border-b border-black p-16">
               <div className="mb-6 text-3xl">☷</div>
               <h3 className="font-semibold mb-3">Social Management</h3>
@@ -262,7 +264,7 @@ const HeroSection = () => {
               </button>
             </div>
 
-            {/* Card 4 */}
+           
             <div className="border-b border-black p-16">
               <div className="mb-6 text-3xl">▤</div>
               <h3 className="font-semibold mb-3">Paid Social Advertising</h3>
@@ -277,7 +279,7 @@ const HeroSection = () => {
               </button>
             </div>
 
-            {/* Card 5 */}
+         
             <div className="border-r border-black p-16">
               <div className="mb-6 text-3xl">◎</div>
               <h3 className="font-semibold mb-3">Influencer Marketing</h3>
@@ -292,7 +294,7 @@ const HeroSection = () => {
               </button>
             </div>
 
-            {/* Card 6 */}
+          
             <div className="p-16">
               <div className="mb-6 text-3xl">◉</div>
               <h3 className="font-semibold mb-3">Video & Photography</h3>
@@ -382,7 +384,7 @@ const HeroSection = () => {
       <section className="w-full bg-[#e3dfd7] py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* LEFT IMAGE COLLAGE */}
+           
             <div className="bg-[#3e5a5c] p-6">
               <div className="grid grid-cols-2 gap-6">
                 <img
@@ -411,7 +413,7 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* RIGHT CONTENT */}
+          
             <div>
               <p className="text-lg mb-4 text-[#333]">
                 Music Marketing Campaign
@@ -429,7 +431,7 @@ const HeroSection = () => {
                 across streaming platforms.
               </p>
 
-              {/* STATS */}
+        
               <div className="flex gap-24">
                 <div>
                   <h4 className="text-6xl font-semibold text-[#111]">8.5M</h4>
@@ -545,6 +547,7 @@ const HeroSection = () => {
           </p>
         </div>
       </section>
+      <FooterWithCTA />
     </>
   );
 };

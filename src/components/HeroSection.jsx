@@ -104,7 +104,7 @@ const HeroSection = () => {
   const navigate = useNavigate();
   return (
     <>
-      <section className="relative w-full h-screen overflow-hidden">
+      <section className="relative w-full h-screen overflow-hidden mb-3">
         {videos.map((video, index) => (
           <video
             key={index}
@@ -140,7 +140,7 @@ const HeroSection = () => {
 
             <button
               onClick={() => navigate("/look")}
-              className="mt-8 px-8 py-4 rounded-full 
+              className=" px-8 py-4 rounded-full 
              bg-white text-Black 
              hover:bg-Gray hover:text-black 
              transition duration-300"
@@ -212,16 +212,13 @@ const HeroSection = () => {
 
       <section className="w-full bg-[#d9d6cf]">
         <div className="max-w-7xl mx-auto border-t border-black">
-       
           <div className="py-6 px-6">
             <h2 className="text-sm font-semibold tracking-wide">
               Social services we offer
             </h2>
           </div>
 
-      
           <div className="grid md:grid-cols-2 border-t border-black">
-         
             <div className="border-r border-b border-black p-16">
               <div className="mb-6 text-3xl">☰</div>
               <h3 className="font-semibold mb-3">Social Strategy</h3>
@@ -235,7 +232,6 @@ const HeroSection = () => {
               </button>
             </div>
 
-           
             <div className="border-b border-black p-16">
               <div className="mb-6 text-3xl">▣</div>
               <h3 className="font-semibold mb-3">Content creation</h3>
@@ -249,7 +245,6 @@ const HeroSection = () => {
               </button>
             </div>
 
-           
             <div className="border-r border-b border-black p-16">
               <div className="mb-6 text-3xl">☷</div>
               <h3 className="font-semibold mb-3">Social Management</h3>
@@ -264,7 +259,6 @@ const HeroSection = () => {
               </button>
             </div>
 
-           
             <div className="border-b border-black p-16">
               <div className="mb-6 text-3xl">▤</div>
               <h3 className="font-semibold mb-3">Paid Social Advertising</h3>
@@ -279,7 +273,6 @@ const HeroSection = () => {
               </button>
             </div>
 
-         
             <div className="border-r border-black p-16">
               <div className="mb-6 text-3xl">◎</div>
               <h3 className="font-semibold mb-3">Influencer Marketing</h3>
@@ -294,7 +287,6 @@ const HeroSection = () => {
               </button>
             </div>
 
-          
             <div className="p-16">
               <div className="mb-6 text-3xl">◉</div>
               <h3 className="font-semibold mb-3">Video & Photography</h3>
@@ -384,7 +376,6 @@ const HeroSection = () => {
       <section className="w-full bg-[#e3dfd7] py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-           
             <div className="bg-[#3e5a5c] p-6">
               <div className="grid grid-cols-2 gap-6">
                 <img
@@ -413,7 +404,6 @@ const HeroSection = () => {
               </div>
             </div>
 
-          
             <div>
               <p className="text-lg mb-4 text-[#333]">
                 Music Marketing Campaign
@@ -431,7 +421,6 @@ const HeroSection = () => {
                 across streaming platforms.
               </p>
 
-        
               <div className="flex gap-24">
                 <div>
                   <h4 className="text-6xl font-semibold text-[#111]">8.5M</h4>

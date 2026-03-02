@@ -5,27 +5,33 @@ import { Menu, X } from "lucide-react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLink =
-    "block text-base font-semibold text-black py-2";
+  const navLink = "block text-base font-semibold text-black py-2";
 
   return (
     <nav className="w-full bg-[#f8f6f2] shadow-md fixed top-0 left-0 z-50">
-      
       {/* Top Bar */}
       <div className="max-w-7xl mx-auto px-6 md:px-16 py-4 flex items-center justify-between">
-        
         {/* Logo */}
-        <Link to="/" onClick={() => setIsOpen(false)}>
-          <img
-            src="/logo1234.png"
-            alt="WhiteMarble Production Logo"
-            className="h-9 md:h-12"
-          />
+        <Link
+          to="/"
+          onClick={() => setIsOpen(false)}
+          className="block leading-none"
+        >
+          <div className="h-12 md:h-14 overflow-hidden">
+            <img
+              src="/logo1234.png"
+              alt="WhiteMarble Production Logo"
+              className="h-full w-auto scale-150 object-contain"
+            />
+          </div>
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-8 items-center">
-          <Link to="/new-movie" className="text-sm font-semibold hover:underline">
+          <Link
+            to="/new-movie"
+            className="text-sm font-semibold hover:underline"
+          >
             Capabilities
           </Link>
           <Link to="/about" className="text-sm font-semibold hover:underline">

@@ -1,28 +1,28 @@
 import React from "react";
+
 import FooterWithCTA from "../components/FooterWithCTA";
 
 export default function LookPage() {
   return (
     <>
       <div className="min-h-screen bg-white text-gray-900">
-        {/* Hero Section: Fullscreen Video */}
         <section className="relative w-full h-screen overflow-hidden">
-          <video autoPlay muted loop className="w-full h-full object-cover">
-            <source src="/lookhere.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="absolute top-0 left-0 w-full h-full object-cover"
+  >
+    <source src="/lookhere.mp4" type="video/mp4" />
+  </video>
 
-          {/* Overlay for Text */}
-          <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-center text-center px-6 md:px-20">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-lg">
-              WhiteMarble Production
-            </h1>
-            <p className="text-lg md:text-2xl text-gray-200 max-w-3xl drop-shadow-md">
-              Elevating brands through cinematic storytelling, premium visuals,
-              and refined production.
-            </p>
-          </div>
-        </section>
+  <div className="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-center px-6 md:px-20">
+    <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-lg">
+      WhiteMarble Production
+    </h1>
+  </div>
+</section>
 
         {/* Main Content Section: Two-Column Text + Video Grid */}
         <section className="py-20 px-6 md:px-20 bg-white">

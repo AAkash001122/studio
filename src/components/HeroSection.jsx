@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FAQSection from "./FAQa";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Video, Clapperboard, PlayCircle } from "lucide-react";
 import FooterWithCTA from "./FooterWithCTA";
+import SelectedWorkSection from "../pages/SelectedWorkSection";
+import Testmonials from "../pages/Testimonials";
+import CTASection from "../pages/CTASection";
 
 const TestimonialSection = () => {
   return (
@@ -83,9 +86,7 @@ const TestimonialSection = () => {
         />
       </div>
 
-      {/* Testimonial and Google rating */}
       <div className="flex flex-col md:flex-row items-center md:items-start justify-between max-w-5xl mx-auto gap-12">
-        {/* Testimonial text */}
         <p className="text-black max-w-xl text-base md:text-lg font-normal leading-relaxed tracking-wide font-['Inter']">
           WhiteMarble have been incredibly helpful and supportive on all the
           projects we have worked on together. The team are all very friendly
@@ -128,7 +129,6 @@ const HeroSection = () => {
   const videos = ["/movies.mp4", "/movies2.mp4"];
   const [currentVideo, setCurrentVideo] = useState(0);
 
-  // Change video every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentVideo((prev) => (prev === 0 ? 1 : 0));
@@ -140,455 +140,185 @@ const HeroSection = () => {
   const navigate = useNavigate();
   return (
     <>
-
+      {/* Section 1 */}
       <section className="relative w-full min-h-screen mb-3">
-  {videos.map((video, index) => (
-    <video
-      key={index}
-      src={video}
-      autoPlay
-      muted
-      loop
-      playsInline
-      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-        index === currentVideo ? "opacity-100" : "opacity-0"
-      }`}
-    />
-  ))}
-
-  {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-black/60"></div>
-
-  {/* Content */}
-  <div className="relative z-10 flex items-center min-h-screen px-6 md:px-16">
-    <div className="max-w-5xl">
-      <h1
-        className="text-white font-semibold leading-[1.15]
-        text-3xl sm:text-4xl md:text-5xl lg:text-6xl 
-        max-w-4xl tracking-tight"
-      >
-        Looking for a India Rated Production House that can drive better
-        <br />
-       
-      </h1>
-
-      <p className="text-gray-300 mt-6 text-base md:text-lg max-w-3xl leading-relaxed font-light">
-        Look no further, we’re WhiteMarble — a fearless creative team of
-        thinkers, writers, designers, technologists and doers. We
-        collaborate with ambitious businesses and in-house teams to create
-        meaningful, high-impact brand experiences.
-      </p>
-
-      <button
-        onClick={() => navigate("/look")}
-        className="mt-6 px-8 py-3 rounded-full 
-        bg-white text-black 
-        text-sm md:text-base font-medium 
-        hover:bg-gray-200 
-        transition-all duration-300"
-      >
-        Change me
-      </button>
-    </div>
-  </div>
-</section>
-
-      <TestimonialSection />
-
-      <section className="max-w-7xl mx-auto px-6 md:px-16 py-16 bg-[#fdf9f0]">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-12 max-w-4xl">
-          Why choose us
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-          <div>
-            <h3 className="font-semibold text-xl md:text-2xl mb-4 text-black tracking-tight">
-              WHO ARE WE?
-            </h3>
-            <p className="text-base md:text-lg max-w-sm text-black/80 leading-[1.8] font-light">
-              WHITE MARBLE PRODUCTION is a film and advertising production house
-              focused on cinematic storytelling and disciplined execution. With
-              experience across 100+ advertising films, we collaborate closely
-              with brands and agencies to deliver emotionally driven, visually
-              precise, and strategically aligned campaigns across platforms.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold text-xl md:text-2xl mb-4 text-black tracking-tight">
-              Advertising Films
-            </h3>
-            <p className="text-base md:text-lg max-w-sm text-black/80 leading-[1.8] font-light">
-              We produce high-end commercial films for television, digital
-              platforms, and large-scale advertising campaigns. Each production
-              is executed with structured planning, cinematic quality, and
-              disciplined on-ground coordination to ensure timely and impactful
-              delivery.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold text-xl md:text-2xl mb-4 text-black tracking-tight">
-              Production Track Record
-            </h3>
-            <p className="text-base md:text-lg max-w-sm text-black/80 leading-[1.8] font-light">
-              Over 100+ advertising films successfully executed across 17+
-              states in India, managing multi-location and large-scale campaigns
-              with zero budget overruns. Our production culture is built on
-              accountability, structured execution, and consistent adherence to
-              committed timelines.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <img
-            src="/wc11.jpg"
-            alt="Data driven"
-            className="w-full h-48 md:h-56 object-cover rounded-md shadow-md"
-            loading="lazy"
+        {videos.map((video, index) => (
+          <video
+            key={index}
+            src={video}
+            autoPlay
+            muted
+            loop // Fixed typo 'loopa' to 'loop'
+            playsInline
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              index === currentVideo ? "opacity-100" : "opacity-0"
+            }`}
           />
-          <img
-            src="/wc2.jpg"
-            alt="Keeping it fresh"
-            className="w-full h-48 md:h-56 object-cover rounded-md shadow-md"
-            loading="lazy"
-          />
-          <img
-            src="/wc3.jpg"
-            alt="On the same team"
-            className="w-full h-48 md:h-56 object-cover rounded-md shadow-md"
-            loading="lazy"
-          />
+        ))}
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        {/* Content - Vertically Centered */}
+        <div className="relative z-10 flex items-center min-h-screen px-6 md:px-16">
+          <div className="max-w-5xl">
+            {/* Heading: Serif, White, Large */}
+            <h1
+              className="font-serif text-white font-bold leading-[1.15]
+        text-4xl sm:text-5xl md:text-7xl lg:text-8xl 
+        max-w-4xl tracking-tight mb-6"
+            >
+              White Marble Production
+            </h1>
+
+            {/* Subheading: Sans-serif, Gray, Elegant */}
+            <p className="font-sans text-gray-300 mt-2 text-lg md:text-2xl max-w-2xl leading-relaxed font-light mb-10">
+              Cinematic stories for brands & screens worldwide.
+            </p>
+
+            {/* Buttons Container */}
+            <div className="flex flex-wrap gap-4">
+              {/* Button 1: View Work - Green Accent (Matches Logo) */}
+              <button
+                onClick={() => navigate("/work")} // Assuming route, change if needed
+                className="px-8 py-3 rounded-full 
+          bg-[#00E676] text-black 
+          text-sm md:text-base font-semibold 
+          hover:bg-[#00c853] 
+          transition-all duration-300 shadow-[0_0_15px_rgba(0,230,118,0.4)]"
+              >
+                View Work
+              </button>
+
+              {/* Button 2: Get in Touch - White Outline */}
+              <button
+                onClick={() => navigate("/contact")} // Assuming route
+                className="px-8 py-3 rounded-full 
+          border border-white text-white 
+          text-sm md:text-base font-semibold 
+          hover:bg-white hover:text-black 
+          transition-all duration-300"
+              >
+                Get in Touch
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="w-full bg-[#d9d6cf]">
-        <div className="max-w-7xl mx-auto border-t border-black">
-          <div className="py-6 px-6">
-            <h2 className="text-sm font-semibold tracking-wide">
-              Social services we offer
+      {/* Section 2 */}
+
+      <section className="w-full bg-[#0a0a0a] py-24 md:py-32 border-t border-white/5">
+        <div className="max-w-5xl mx-auto px-6 md:px-16">
+          {/* Section Heading: Serif Font, White, with Subtle Green Accent */}
+          <div className="mb-10">
+            <h2 className="font-serif text-white text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+              WHO WE ARE
+              {/* Decorative Green Line */}
+              <span className="block w-16 h-1.5 bg-[#00E676] mt-4"></span>
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 border-t border-black">
-            <div className="border-r border-b border-black p-16">
-              <div className="mb-6 text-3xl">☰</div>
-              <h3 className="font-semibold mb-3">Social Strategy</h3>
-              <p className="text-sm leading-relaxed max-w-xs mb-6">
-                As expert social creators, we’ll use our knowledge to develop
-                insight-driven social strategies that not only leave a lasting
-                impression, but effectively tell your unique brand story.
-              </p>
-              <button className="bg-black text-white text-xs px-5 py-2 rounded-full">
-                Contact us
-              </button>
-            </div>
+          {/* Body Content: Sans-serif, Light Gray for better readability */}
+          <div className="space-y-6">
+            <p className="font-sans text-gray-300 text-lg md:text-xl leading-relaxed font-light">
+              White Marble Production is a Mumbai-based film and advertising
+              production house delivering cinematic storytelling and disciplined
+              execution across brand campaigns and original content.
+            </p>
 
-            <div className="border-b border-black p-16">
-              <div className="mb-6 text-3xl">▣</div>
-              <h3 className="font-semibold mb-3">Content creation</h3>
-              <p className="text-sm leading-relaxed max-w-xs mb-6">
-                When it comes to our India social media agency, we know what
-                sticks. Our weekly approach to content creation ensures you get
-                the best ideas, content and visual execution at all times.
-              </p>
-              <button className="bg-black text-white text-xs px-5 py-2 rounded-full">
-                Contact us
-              </button>
-            </div>
-
-            <div className="border-r border-b border-black p-16">
-              <div className="mb-6 text-3xl">☷</div>
-              <h3 className="font-semibold mb-3">Social Management</h3>
-              <p className="text-sm leading-relaxed max-w-xs mb-6">
-                Take away the burden of having to handle weekly posting by
-                outsourcing it to our content team. We’ll use our tools to make
-                the process seamless, supported by monthly reporting and
-                recommendations.
-              </p>
-              <button className="bg-black text-white text-xs px-5 py-2 rounded-full">
-                Contact us
-              </button>
-            </div>
-
-            <div className="border-b border-black p-16">
-              <div className="mb-6 text-3xl">▤</div>
-              <h3 className="font-semibold mb-3">Paid Social Advertising</h3>
-              <p className="text-sm leading-relaxed max-w-xs mb-6">
-                Our paid search experience comes from ongoing learning and deep
-                analysis of what works and what doesn’t. Paired with great
-                creative, we’ll ensure you get the conversions you’re looking
-                for.
-              </p>
-              <button className="bg-black text-white text-xs px-5 py-2 rounded-full">
-                Contact us
-              </button>
-            </div>
-
-            <div className="border-r border-black p-16">
-              <div className="mb-6 text-3xl">◎</div>
-              <h3 className="font-semibold mb-3">Influencer Marketing</h3>
-              <p className="text-sm leading-relaxed max-w-xs mb-6">
-                There are so many influencers out there that choosing the right
-                one can feel overwhelming. Our India creative agency will guide
-                and liaise with influencers on who we feel are right for your
-                brand, content design and style.
-              </p>
-              <button className="bg-black text-white text-xs px-5 py-2 rounded-full">
-                Contact us
-              </button>
-            </div>
-
-            <div className="p-16">
-              <div className="mb-6 text-3xl">◉</div>
-              <h3 className="font-semibold mb-3">Video & Photography</h3>
-              <p className="text-sm leading-relaxed max-w-xs mb-6">
-                As a India creative agency, we have in-house photography
-                capabilities and also access to specialist lifestyle and video
-                photographers too, you’ve come to the right place.
-              </p>
-              <button className="bg-black text-white text-xs px-5 py-2 rounded-full">
-                Contact us
-              </button>
-            </div>
+            <p className="font-sans text-gray-300 text-lg md:text-xl leading-relaxed font-light">
+              With experience across 100+ advertising films and production
+              across 17+ states in India, we specialize in scalable, story-first
+              productions for agencies and brands.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="w-full bg-[#e3dfd7] py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* Heading */}
-          <h2 className="text-4xl font-semibold mb-16 text-[#111]">
-            See the results
-          </h2>
+      {/* Section 3 */}
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* LEFT IMAGE COLLAGE */}
-            <div className="bg-[#2c2c2c] p-6">
-              <div className="grid grid-cols-2 gap-6">
-                <img
-                  src="https://images.unsplash.com/photo-1511379938547-c1f69419868d"
-                  className="w-full h-48 object-cover"
-                  alt="Music Studio"
-                />
+      <section className="w-full bg-[#0a0a0a] py-24 md:py-32 border-t border-white/5 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-16 relative z-10">
+          {/* Section Header */}
+          <div className="mb-16">
+            <h2 className="font-serif text-white text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+              WHAT WE DO
+              <span className="block w-16 h-1.5 bg-[#00E676] mt-4"></span>
+            </h2>
+          </div>
 
-                <img
-                  src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2"
-                  className="w-full h-48 object-cover"
-                  alt="Recording Mic"
-                />
+          {/* Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Block 1: Advertising Films */}
+            <div className="group relative bg-[#141414] border border-white/10 p-8 rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:border-[#00E676] hover:shadow-[0_10px_30px_rgba(0,230,118,0.1)] overflow-hidden">
+              {/* Subtle Green Glow on Hover Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00E676]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                <img
-                  src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae"
-                  className="w-full h-48 object-cover"
-                  alt="Mixing Console"
-                />
-
-                <img
-                  src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4"
-                  className="w-full h-48 object-cover"
-                  alt="Headphones Studio"
-                />
+              {/* Icon */}
+              <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-6 text-[#00E676] transition-colors group-hover:bg-[#00E676] group-hover:text-black">
+                <Video size={24} />
               </div>
-            </div>
 
-            {/* RIGHT CONTENT */}
-            <div>
-              <p className="text-lg mb-4 text-[#333]">Premium Music Studio</p>
-
-              <h3 className="text-4xl font-semibold leading-tight mb-6 text-[#111]">
-                Massive growth with a <br />
-                professional music production campaign
+              <h3 className="font-serif text-2xl text-white mb-4 group-hover:text-[#00E676] transition-colors duration-300">
+                Advertising Films
               </h3>
 
-              <p className="text-lg text-[#444] leading-relaxed mb-12 max-w-xl">
-                Showcasing our studio’s mission to empower independent artists,
-                producers and creators by delivering high-quality recording,
-                mixing and mastering services powered by creative digital
+              <p className="font-sans text-gray-400 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                High-end commercials for brands, agencies, and digital
                 campaigns.
               </p>
-
-              {/* STATS */}
-              <div className="flex gap-24">
-                <div>
-                  <h4 className="text-6xl font-semibold text-[#111]">8M+</h4>
-                  <p className="mt-3 text-[#444]">streams generated</p>
-                </div>
-
-                <div>
-                  <h4 className="text-6xl font-semibold text-[#111]">15k+</h4>
-                  <p className="mt-3 text-[#444]">artist collaborations</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full bg-[#e3dfd7] py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-[#3e5a5c] p-6">
-              <div className="grid grid-cols-2 gap-6">
-                <img
-                  src="https://images.unsplash.com/photo-1511379938547-c1f69419868d"
-                  className="w-full h-48 object-cover"
-                  alt="Music production"
-                />
-
-                <img
-                  src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f"
-                  className="w-full h-48 object-cover"
-                  alt="Live concert"
-                />
-
-                <img
-                  src="https://images.unsplash.com/photo-1507838153414-b4b713384a76"
-                  className="w-full h-48 object-cover"
-                  alt="Studio recording"
-                />
-
-                <img
-                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
-                  className="w-full h-48 object-cover"
-                  alt="Headphones music"
-                />
-              </div>
             </div>
 
-            <div>
-              <p className="text-lg mb-4 text-[#333]">
-                Music Marketing Campaign
-              </p>
+            {/* Block 2: Branded Stories */}
+            <div className="group relative bg-[#141414] border border-white/10 p-8 rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:border-[#00E676] hover:shadow-[0_10px_30px_rgba(0,230,118,0.1)] overflow-hidden">
+              {/* Subtle Green Glow on Hover Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00E676]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-              <h3 className="text-4xl font-semibold leading-tight mb-6 text-[#111]">
-                Amplifying streams & engagement <br />
-                with a powerful digital music campaign
+              {/* Icon */}
+              <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-6 text-[#00E676] transition-colors group-hover:bg-[#00E676] group-hover:text-black">
+                <Clapperboard size={24} />
+              </div>
+
+              <h3 className="font-serif text-2xl text-white mb-4 group-hover:text-[#00E676] transition-colors duration-300">
+                Branded Stories
               </h3>
 
-              <p className="text-lg text-[#444] leading-relaxed mb-12 max-w-xl">
-                Showcasing emerging artists and music brands through strategic
-                content, paid promotions, and platform optimisation — connecting
-                tracks with the right audience and driving real engagement
-                across streaming platforms.
+              <p className="font-sans text-gray-400 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                Narrative-driven brand films for modern audiences.
               </p>
+            </div>
 
-              <div className="flex gap-24">
-                <div>
-                  <h4 className="text-6xl font-semibold text-[#111]">8.5M</h4>
-                  <p className="mt-3 text-[#444]">total streams reached</p>
-                </div>
+            {/* Block 3: Original Content */}
+            <div className="group relative bg-[#141414] border border-white/10 p-8 rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:border-[#00E676] hover:shadow-[0_10px_30px_rgba(0,230,118,0.1)] overflow-hidden">
+              {/* Subtle Green Glow on Hover Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00E676]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                <div>
-                  <h4 className="text-6xl font-semibold text-[#111]">120k</h4>
-                  <p className="mt-3 text-[#444]">new followers gained</p>
-                </div>
+              {/* Icon */}
+              <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-6 text-[#00E676] transition-colors group-hover:bg-[#00E676] group-hover:text-black">
+                <PlayCircle size={24} />
               </div>
+
+              <h3 className="font-serif text-2xl text-white mb-4 group-hover:text-[#00E676] transition-colors duration-300">
+                Original Content
+              </h3>
+
+              <p className="font-sans text-gray-400 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                Short films and long-form storytelling projects.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="w-full bg-[#e6c1b8]">
-        <div className="grid lg:grid-cols-2 items-center min-h-screen">
-          {/* LEFT CONTENT */}
-          <div className="px-10 lg:px-20 py-20">
-            <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6">
-              We focus on you <br /> and your audience
-            </h2>
+      <SelectedWorkSection />
 
-            <p className="text-base md:text-lg text-black/80 leading-relaxed max-w-xl mb-8">
-              At <span className="font-semibold">WhiteMarble</span>, we blend
-              creativity with strategy to produce impactful music campaigns.
-              From studio production to digital promotion, our team helps
-              artists and music brands grow their audience, increase streams,
-              and build lasting fan engagement.
-            </p>
+      <Testmonials />
 
-            <button className="bg-black text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-black/80 transition-all duration-300">
-              Our Culture
-            </button>
-          </div>
+      <CTASection />
 
-          {/* RIGHT IMAGE – MUSIC STUDIO */}
-          <div className="h-full">
-            <img
-              src="https://images.unsplash.com/photo-1511379938547-c1f69419868d"
-              alt="Music Studio Production"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
-      <FAQSection />
+      {/* <TestimonialSection /> */}
 
-      {/* TOP LOCATION SECTION */}
-      <section className="w-full bg-[#7e7a70]">
-        <div className="grid md:grid-cols-2 min-h-[500px]">
-          {/* LEFT SIDE */}
-          <div className="flex flex-col justify-center px-10 md:px-20 py-16 text-white">
-            <h2 className="text-4xl font-semibold mb-8">India</h2>
-
-            <div className="space-y-2 text-lg leading-relaxed mb-10">
-              <p>129, Kartik building, next to Kuber building, x</p>
-              <p>Opposite to Lakshmi Industry, Andheri West, Mumbai,</p>
-
-              <p className="mt-6">+91 7903606342</p>
-            </div>
-
-            <div className="space-y-6 mt-6">
-              <div className="flex items-center gap-4">
-                <CheckCircle className="text-white" size={24} />
-                <span className="text-lg">Meet us in Battersea</span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <CheckCircle className="text-white" size={24} />
-                <span className="text-lg">Face to face meetings</span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <CheckCircle className="text-white" size={24} />
-                <span className="text-lg">Great place for lunch</span>
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT SIDE MAP */}
-          <div className="w-full h-[400px] md:h-auto">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d30154.85832863687!2d72.81186593476565!3d19.13583140000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1772195079315!5m2!1sen!2sin"
-              width="100%"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Google Map"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* FOOTER SECTION */}
-      <section className="bg-[#e7e3db] py-16 text-center text-sm text-black">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="mb-6">
-            <div className="inline-block bg-black text-white px-6 py-3 rounded-md font-bold tracking-widest">
-              WhiteMarble
-            </div>
-          </div>
-
-          <p className="mb-6">WhiteMarble</p>
-          <p>129, Kartik building, next to Kuber building, x</p>
-          <p>Opposite to Lakshmi Industry, Andheri West, Mumbai,</p>
-
-          <p className="text-xs text-black/70">
-            © WhiteMarble Ltd | Privacy and Cookies Policy | Terms & Conditions
-          </p>
-        </div>
-      </section>
       <FooterWithCTA />
     </>
   );

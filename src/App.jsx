@@ -1,13 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
+
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import NewMovie from "./pages/NewMovie";
-import About from "./pages/About";
 import Contact from "./pages/Contact";
-import LookPage from "./pages/LookPage";
-import Help from "./pages/Help"; // The other FAQ/help page
-import Faqs from "./pages/Faqs"; // Your custom FAQ accordion page
+import Work from "./pages/Work";
+import About from "./pages/About";
+import Progress from "./pages/Progress"
+import Clients from "./pages/Clients"
 
 function App() {
   return (
@@ -15,15 +14,12 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/new-movie" element={<NewMovie />} />
-        <Route path="/about" element={<About />} />
+
         <Route path="/contact" element={<Contact />} />
-        <Route path="/look" element={<LookPage />} />
-        {/* FAQ/Help routes */}
-        <Route path="/faqs" element={<Faqs />} /> {/* custom accordion FAQ */}
-        <Route path="/help" element={<Help />} />{" "}
-        {/* Help page using UI Accordion */}
+        <Route path="/work" element={<Work />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/progress" element={<Progress />} />
+        <Route path="/clients" element={<Clients />} />
       </Routes>
     </Router>
   );

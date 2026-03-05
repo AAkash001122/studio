@@ -1,69 +1,202 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Facebook,
+} from "lucide-react";
 
-export default function FooterWithCTA() {
+const FooterWithCTA = () => {
   return (
-    <>
-      <footer className="bg-black text-gray-300 py-12 px-6 md:px-16">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Column 1 */}
-          <div>
-            <h3 className="font-semibold text-white mb-3">
-              Digital Music Distribution
-            </h3>
-            <p className="text-xs md:text-sm max-w-sm">
-              Digital Music Distribution Provides Music Distribution And Artist
-              Management Services.
+    <footer className="bg-[#050505] border-t border-white/10 pt-20 pb-10 relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#00E676]/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-6 md:px-16 relative z-10">
+        {/* Top Section: Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* 1. Brand Column (Logo + About) */}
+          <div className="space-y-6">
+            {/* Same Logo as Navbar */}
+          <div className="h-16 md:h-20 w-auto overflow-hidden">
+  <img
+    src="/logowm.png"
+    alt="WhiteMarble Production"
+    className="h-full w-48 md:w-56 object-contain"
+  />
+</div>
+
+            <p className="font-sans text-gray-400 text-sm leading-relaxed">
+              A fearless creative team of thinkers, writers, and doers. We craft
+              cinematic stories for brands and screens worldwide.
             </p>
+
+            {/* Social Icons */}
+            <div className="flex gap-4">
+             <a
+  href="https://www.instagram.com/whitemarbleproduction_?utm_source=qr&igsh=MWc3azI1dmdhZ3Y2Nw=="
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-400 hover:text-black hover:bg-[#00E676] hover:border-[#00E676] transition-all duration-300"
+>
+  <Instagram size={18} />
+</a>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-400 hover:text-black hover:bg-[#00E676] hover:border-[#00E676] transition-all duration-300"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-400 hover:text-black hover:bg-[#00E676] hover:border-[#00E676] transition-all duration-300"
+              >
+                <Twitter size={18} />
+              </a>
+            </div>
           </div>
 
-          {/* Column 2 */}
+          {/* 2. Quick Links */}
           <div>
-            <h3 className="font-semibold text-white mb-3">Platform</h3>
-            <ul className="text-xs md:text-sm space-y-1">
+            <h3 className="font-serif text-white text-lg font-bold mb-6">
+              Navigation
+            </h3>
+            <ul className="space-y-3">
               <li>
-                <Link to="/" className="hover:text-white transition">
+                <a
+                  href="/"
+                  className="font-sans text-gray-400 text-sm hover:text-[#00E676] transition-colors"
+                >
                   Home
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-white transition">
-                  Contact Us
-                </Link>
+                <a
+                  href="/work"
+                  className="font-sans text-gray-400 text-sm hover:text-[#00E676] transition-colors"
+                >
+                  Work
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/about"
+                  className="font-sans text-gray-400 text-sm hover:text-[#00E676] transition-colors"
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/process"
+                  className="font-sans text-gray-400 text-sm hover:text-[#00E676] transition-colors"
+                >
+                  Process
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/contact"
+                  className="font-sans text-gray-400 text-sm hover:text-[#00E676] transition-colors"
+                >
+                  Contact
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Column 3 */}
+          {/* 3. Services */}
           <div>
-            <h3 className="font-semibold text-white mb-3">Support</h3>
-            <ul className="text-xs md:text-sm space-y-1">
+            <h3 className="font-serif text-white text-lg font-bold mb-6">
+              Capabilities
+            </h3>
+            <ul className="space-y-3">
               <li>
-                <Link to="/faqs" className="hover:text-white transition">
-                  FAQ
-                </Link>
+                <span className="font-sans text-gray-400 text-sm">
+                  Advertising Films
+                </span>
               </li>
               <li>
-                <Link to="/help" className="hover:text-white transition">
-                  Help Center
-                </Link>
+                <span className="font-sans text-gray-400 text-sm">
+                  Branded Stories
+                </span>
+              </li>
+              <li>
+                <span className="font-sans text-gray-400 text-sm">
+                  Original Content
+                </span>
+              </li>
+              <li>
+                <span className="font-sans text-gray-400 text-sm">
+                  Production Services
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          {/* 4. Contact Info */}
+          <div>
+            <h3 className="font-serif text-white text-lg font-bold mb-6">
+              Get in Touch
+            </h3>
+            <ul className="space-y-5">
+              <li className="flex items-start gap-3">
+                <MapPin className="text-[#00E676] shrink-0 mt-1" size={18} />
+                <span className="font-sans text-gray-400 text-sm leading-relaxed">
+                 129, Kartik building, next to Kuber building, <br />
+                  Opposite to Lakshmi Industry, Andheri West, <br />
+                  Mumbai, Maharashtra 400065
+                </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="text-[#00E676] shrink-0" size={18} />
+                <a
+                  href="mailto:hello@whitemarble.com"
+                  className="font-sans text-gray-400 text-sm hover:text-white transition-colors"
+                >
+                 whitemarbleproduction@gmail.com
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="text-[#00E676] shrink-0" size={18} />
+                <a
+                  href="tel:+919876543210"
+                  className="font-sans text-gray-400 text-sm hover:text-white transition-colors"
+                >
+                  +917903606342
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="mt-12 flex flex-col md:flex-row justify-between items-center text-[9px] text-gray-600">
-          <p>© 2026 Digital Music Distribution. All Rights Reserved.</p>
-          <div className="space-x-4 mt-2 md:mt-0">
-            <Link to="/terms" className="hover:text-white transition">
-              Terms And Conditions
-            </Link>
-            <Link to="/privacy" className="hover:text-white transition">
+        {/* Bottom Section: Copyright Bar */}
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="font-sans text-gray-500 text-xs text-center md:text-left">
+            © 2026 White Marble Production. All rights reserved.
+          </p>
+
+          <div className="flex gap-6">
+            <a
+              href="#"
+              className="font-sans text-gray-500 text-xs hover:text-white transition-colors"
+            >
               Privacy Policy
-            </Link>
+            </a>
+            <a
+              href="#"
+              className="font-sans text-gray-500 text-xs hover:text-white transition-colors"
+            >
+              Terms of Service
+            </a>
           </div>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
-}
+};
+
+export default FooterWithCTA;
+

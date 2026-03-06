@@ -1,64 +1,101 @@
-
 import React, { useState } from "react";
-import { Play, ArrowUpRight, X } from "lucide-react";
+import { Play, ArrowUpRight, X, ChevronLeft, ChevronRight } from "lucide-react";
 import FooterWithCTA from "../components/FooterWithCTA";
 
 const WorkPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
-  // --- UPDATED DATA: INSTAGRAM EMBED LINKS ---
+  // Pagination State
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+
+  // --- DATA: 10 Videos with Details ---
   const projectsData = [
     {
       id: 1,
       brand: "Hyundai",
       campaign: "Father’s Day Campaign",
       role: "Production Execution",
-      thumbnail: "image.png", // Replace with reel screenshot
-      videoUrl: "https://www.instagram.com/reel/DUAObJ3gWoI/embed",
+      videoUrl: "/1.mp4",
     },
     {
       id: 2,
       brand: "Samsung",
       campaign: "Commercial Campaign",
       role: "Production",
-      thumbnail: "https://picsum.photos/seed/samsung/800/500",
-      videoUrl: "https://www.instagram.com/reel/DVf0KI-gQrI/embed",
+      videoUrl: "/2.mp4",
     },
     {
       id: 3,
       brand: "Zovio",
       campaign: "Brand Reel 2024",
       role: "Creative Direction",
-      thumbnail: "https://picsum.photos/seed/zovo/800/500",
-      videoUrl: "https://www.instagram.com/reel/DUAO3cXAR0U/embed",
+      videoUrl: "/3.mp4",
     },
     {
       id: 4,
       brand: "Oppo",
       campaign: "Diwali Festival",
       role: "End-to-End Production",
-      thumbnail: "https://picsum.photos/seed/oppo/800/500",
-      // Using a distinct available link here
-      videoUrl: "https://www.instagram.com/reel/DUxPCXzAYHU/embed",
+      videoUrl: "/4.mp4",
     },
     {
       id: 5,
       brand: "Vivo",
       campaign: "V-Series Launch",
       role: "Production House",
-      thumbnail: "https://picsum.photos/seed/vivo/800/500",
-      videoUrl: "https://www.instagram.com/reel/DUAPd7xAUmn/embed",
+      videoUrl: "/5.mp4",
     },
     {
       id: 6,
       brand: "Backbenchers",
       campaign: "Indie Film Project",
       role: "Co-Production",
-      thumbnail: "https://picsum.photos/seed/indie/800/500",
-      // Reusing first link
-      videoUrl: "https://www.instagram.com/reel/DUAObJ3gWoI/embed",
+      videoUrl: "/6.mp4",
+    },
+    {
+      id: 7,
+      brand: "IFP",
+      campaign: "Brand Collaboration",
+      role: "Execution Partner",
+      videoUrl: "/7.mp4",
+    },
+    {
+      id: 8,
+      brand: "Fast Relief",
+      campaign: "Digital Ad",
+      role: "Production",
+      videoUrl: "/8.mp4",
+    },
+    {
+      id: 9,
+      brand: "HDFC",
+      campaign: "Insurance Campaign",
+      role: "Production House",
+      videoUrl: "/9.mp4",
+    },
+    {
+      id: 10,
+      brand: "Little",
+      campaign: "Creative Story",
+      role: "Direction & Production",
+      videoUrl: "/10.mp4",
     },
   ];
+
+  // Pagination Logic
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProjects = projectsData.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(projectsData.length / itemsPerPage);
+
+  const nextPage = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
 
   return (
     <>
@@ -78,23 +115,28 @@ const WorkPage = () => {
       {/* --- PROJECTS GRID --- */}
       <section className="w-full bg-[#0a0a0a] py-16 px-6 md:px-16 min-h-screen">
         <div className="max-w-7xl mx-auto">
-          {/* Grid: 1 col mobile, 2 col tablet, 3 col desktop */}
+          {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-            {projectsData.map((project) => (
+            {currentProjects.map((project) => (
               <div
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
                 className="group cursor-pointer"
               >
-                {/* 1. THUMBNAIL FRAME */}
+                {/* 1. DIRECT VIDEO PREVIEW CARD */}
                 <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-[#141414] mb-5">
-                  <img
-                    src={project.thumbnail}
-                    alt={project.campaign}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                  <video
+                    src={project.videoUrl}
+                    muted
+                    loop
+                    playsInline
+                    onMouseEnter={(e) => e.target.play()}
+                    onMouseLeave={(e) => {
+                      e.target.pause();
+                      e.target.currentTime = 0;
+                    }}
+                    className="h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-50"
                   />
-
-                  {/* Hover Overlay: Green Tint + Play Button */}
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
                     <div className="w-14 h-14 rounded-full bg-[#00E676] flex items-center justify-center shadow-[0_0_25px_rgba(0,230,118,0.6)] transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-75">
                       <Play className="text-black fill-black ml-1" size={20} />
@@ -104,17 +146,12 @@ const WorkPage = () => {
 
                 {/* 2. PROJECT DETAILS */}
                 <div className="flex flex-col">
-                  {/* Brand Name (Serif, Big, Elegant) */}
                   <h3 className="font-serif text-2xl md:text-3xl text-white font-bold mb-1 group-hover:text-[#00E676] transition-colors">
                     {project.brand}
                   </h3>
-
-                  {/* Campaign Name (Sans, Gray) */}
                   <p className="font-sans text-gray-400 text-base mb-3">
                     {project.campaign}
                   </p>
-
-                  {/* Role (Small, Green Accent, Uppercase) */}
                   <div className="flex items-center gap-2">
                     <span className="text-[#00E676] text-xs font-bold uppercase tracking-widest border border-[#00E676]/30 px-2 py-1 rounded">
                       {project.role}
@@ -128,50 +165,76 @@ const WorkPage = () => {
               </div>
             ))}
           </div>
+
+          {/* --- PAGINATION --- */}
+          <div className="flex justify-center items-center gap-6 mt-12">
+            <button
+              onClick={prevPage}
+              disabled={currentPage === 1}
+              className={`flex items-center gap-2 px-6 py-2 rounded-full border transition-all duration-300 ${
+                currentPage === 1
+                  ? "border-white/10 text-gray-600 cursor-not-allowed"
+                  : "border-white/20 text-white hover:bg-[#00E676] hover:text-black hover:border-[#00E676]"
+              }`}
+            >
+              <ChevronLeft size={18} /> Prev
+            </button>
+            <span className="font-sans text-gray-400 text-sm">
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              onClick={nextPage}
+              disabled={currentPage === totalPages}
+              className={`flex items-center gap-2 px-6 py-2 rounded-full border transition-all duration-300 ${
+                currentPage === totalPages
+                  ? "border-white/10 text-gray-600 cursor-not-allowed"
+                  : "border-white/20 text-white hover:bg-[#00E676] hover:text-black hover:border-[#00E676]"
+              }`}
+            >
+              Next <ChevronRight size={18} />
+            </button>
+          </div>
         </div>
       </section>
 
-      {/* --- VIDEO MODAL (UPDATED FOR INSTAGRAM IFRAME) --- */}
+      {/* --- COMPACT VIDEO MODAL (HALF SIZE & FULLY RESPONSIVE) --- */}
       {selectedProject && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-4"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4"
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="bg-[#141414] w-full max-w-5xl rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 flex flex-col"
+            // Width: max-w-2xl (Compact), Height handled inside
+            className="bg-[#141414] w-full max-w-2xl rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-[#00E676] hover:text-black transition-colors"
+              className="absolute top-2 right-2 z-10 p-1 bg-black/60 rounded-full text-white hover:bg-[#00E676] hover:text-black transition-colors"
             >
-              <X size={24} />
+              <X size={20} />
             </button>
 
-            {/* Video Player - Changed to Iframe for Instagram */}
-            <div className="w-full bg-black h-[70vh] md:h-[600px]">
-              <iframe
+            {/* Video Player - Very Compact Height */}
+            <div className="w-full bg-black h-[25vh] md:h-[350px]">
+              <video
                 src={selectedProject.videoUrl}
-                className="w-full h-full"
-                frameBorder="0"
-                scrolling="no"
-                allowtransparency="true"
-                allow="encrypted-media; picture-in-picture; web-share"
-                allowFullScreen
-                title="Instagram Reel"
-              ></iframe>
+                className="w-full h-full object-contain"
+                autoPlay
+                controls
+              />
             </div>
 
-            {/* Modal Footer */}
-            <div className="p-6 md:p-8 bg-[#141414]">
-              <h2 className="font-serif text-3xl text-white mb-1">
+            {/* Modal Footer - Reduced Padding */}
+            <div className="p-4 md:p-5 bg-[#141414]">
+              <h2 className="font-serif text-xl md:text-2xl text-white mb-1">
                 {selectedProject.brand}
               </h2>
-              <p className="text-[#00E676] font-sans font-semibold text-sm uppercase tracking-wider mb-3">
+              <p className="text-[#00E676] font-sans font-semibold text-xs uppercase tracking-wider mb-2">
                 {selectedProject.role}
               </p>
-              <p className="text-gray-400 font-sans">
+              <p className="text-gray-400 font-sans text-sm">
                 {selectedProject.campaign}
               </p>
             </div>

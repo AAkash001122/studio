@@ -92,7 +92,7 @@ const Navbar = () => {
             About
           </Link>
           <Link
-            to="/process"
+            to="/progress"
             className={navLink}
             onClick={() => setIsOpen(false)}
           >

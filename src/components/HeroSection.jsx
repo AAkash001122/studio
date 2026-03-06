@@ -94,7 +94,6 @@ const TestimonialSection = () => {
           a creative agency.
         </p>
 
-        {/* Google logo and stars */}
         <div className="flex flex-col items-center md:items-end space-y-3">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
@@ -119,7 +118,6 @@ const TestimonialSection = () => {
         </div>
       </div>
 
-      {/* Bottom border line */}
       <div className="border-t border-black mt-12"></div>
     </section>
   );
@@ -140,7 +138,6 @@ const HeroSection = () => {
   const navigate = useNavigate();
   return (
     <>
-      {/* Section 1 */}
       <section className="relative w-full min-h-screen mb-3">
         {videos.map((video, index) => (
           <video
@@ -148,7 +145,7 @@ const HeroSection = () => {
             src={video}
             autoPlay
             muted
-            loop // Fixed typo 'loopa' to 'loop'
+            loop
             playsInline
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
               index === currentVideo ? "opacity-100" : "opacity-0"
@@ -156,13 +153,10 @@ const HeroSection = () => {
           />
         ))}
 
-        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60"></div>
 
-        {/* Content - Vertically Centered */}
         <div className="relative z-10 flex items-center min-h-screen px-6 md:px-16">
           <div className="max-w-5xl">
-            {/* Heading: Serif, White, Large */}
             <h1
               className="font-serif text-white font-bold leading-[1.15]
         text-4xl sm:text-5xl md:text-7xl lg:text-8xl 
@@ -171,16 +165,13 @@ const HeroSection = () => {
               White Marble Production
             </h1>
 
-            {/* Subheading: Sans-serif, Gray, Elegant */}
             <p className="font-sans text-gray-300 mt-2 text-lg md:text-2xl max-w-2xl leading-relaxed font-light mb-10">
               Cinematic stories for brands & screens worldwide.
             </p>
 
-            {/* Buttons Container */}
             <div className="flex flex-wrap gap-4">
-              {/* Button 1: View Work - Green Accent (Matches Logo) */}
               <button
-                onClick={() => navigate("/work")} // Assuming route, change if needed
+                onClick={() => navigate("/work")}
                 className="px-8 py-3 rounded-full 
           bg-[#00E676] text-black 
           text-sm md:text-base font-semibold 
@@ -190,9 +181,8 @@ const HeroSection = () => {
                 View Work
               </button>
 
-              {/* Button 2: Get in Touch - White Outline */}
               <button
-                onClick={() => navigate("/contact")} // Assuming route
+                onClick={() => navigate("/contact")}
                 className="px-8 py-3 rounded-full 
           border border-white text-white 
           text-sm md:text-base font-semibold 
@@ -206,20 +196,15 @@ const HeroSection = () => {
         </div>
       </section>
 
-      {/* Section 2 */}
-
       <section className="w-full bg-[#0a0a0a] py-24 md:py-32 border-t border-white/5">
         <div className="max-w-5xl mx-auto px-6 md:px-16">
-          {/* Section Heading: Serif Font, White, with Subtle Green Accent */}
           <div className="mb-10">
             <h2 className="font-serif text-white text-4xl md:text-6xl font-bold tracking-tight leading-tight">
               WHO WE ARE
-              {/* Decorative Green Line */}
               <span className="block w-16 h-1.5 bg-[#00E676] mt-4"></span>
             </h2>
           </div>
 
-          {/* Body Content: Sans-serif, Light Gray for better readability */}
           <div className="space-y-6">
             <p className="font-sans text-gray-300 text-lg md:text-xl leading-relaxed font-light">
               White Marble Production is a Mumbai-based film and advertising
@@ -236,11 +221,8 @@ const HeroSection = () => {
         </div>
       </section>
 
-      {/* Section 3 */}
-
       <section className="w-full bg-[#0a0a0a] py-24 md:py-32 border-t border-white/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-16 relative z-10">
-          {/* Section Header */}
           <div className="mb-16">
             <h2 className="font-serif text-white text-4xl md:text-6xl font-bold tracking-tight leading-tight">
               WHAT WE DO
@@ -248,14 +230,10 @@ const HeroSection = () => {
             </h2>
           </div>
 
-          {/* Grid Layout */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Block 1: Advertising Films */}
             <div className="group relative bg-[#141414] border border-white/10 p-8 rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:border-[#00E676] hover:shadow-[0_10px_30px_rgba(0,230,118,0.1)] overflow-hidden">
-              {/* Subtle Green Glow on Hover Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#00E676]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-              {/* Icon */}
               <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-6 text-[#00E676] transition-colors group-hover:bg-[#00E676] group-hover:text-black">
                 <Video size={24} />
               </div>
@@ -270,12 +248,9 @@ const HeroSection = () => {
               </p>
             </div>
 
-            {/* Block 2: Branded Stories */}
             <div className="group relative bg-[#141414] border border-white/10 p-8 rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:border-[#00E676] hover:shadow-[0_10px_30px_rgba(0,230,118,0.1)] overflow-hidden">
-              {/* Subtle Green Glow on Hover Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#00E676]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-              {/* Icon */}
               <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-6 text-[#00E676] transition-colors group-hover:bg-[#00E676] group-hover:text-black">
                 <Clapperboard size={24} />
               </div>
@@ -289,12 +264,9 @@ const HeroSection = () => {
               </p>
             </div>
 
-            {/* Block 3: Original Content */}
             <div className="group relative bg-[#141414] border border-white/10 p-8 rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:border-[#00E676] hover:shadow-[0_10px_30px_rgba(0,230,118,0.1)] overflow-hidden">
-              {/* Subtle Green Glow on Hover Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#00E676]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-              {/* Icon */}
               <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-6 text-[#00E676] transition-colors group-hover:bg-[#00E676] group-hover:text-black">
                 <PlayCircle size={24} />
               </div>
@@ -316,8 +288,6 @@ const HeroSection = () => {
       <Testmonials />
 
       <CTASection />
-
-      {/* <TestimonialSection /> */}
 
       <FooterWithCTA />
     </>

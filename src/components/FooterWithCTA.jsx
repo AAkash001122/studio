@@ -15,11 +15,11 @@ const FooterWithCTA = () => {
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#00E676]/5 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-16 relative z-10">
-        {/* Top Section: Grid Layout */}
+      
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* 1. Brand Column (Logo + About) */}
+          
           <div className="space-y-6">
-            {/* Same Logo as Navbar */}
+           
           <div className="h-16 md:h-20 w-auto overflow-hidden">
   <img
     src="/logowm.png"
@@ -33,7 +33,7 @@ const FooterWithCTA = () => {
               cinematic stories for brands and screens worldwide.
             </p>
 
-            {/* Social Icons */}
+       
             <div className="flex gap-4">
              <a
   href="https://www.instagram.com/whitemarbleproduction_?utm_source=qr&igsh=MWc3azI1dmdhZ3Y2Nw=="
@@ -58,7 +58,7 @@ const FooterWithCTA = () => {
             </div>
           </div>
 
-          {/* 2. Quick Links */}
+    
           <div>
             <h3 className="font-serif text-white text-lg font-bold mb-6">
               Navigation
@@ -107,7 +107,7 @@ const FooterWithCTA = () => {
             </ul>
           </div>
 
-          {/* 3. Services */}
+   
           <div>
             <h3 className="font-serif text-white text-lg font-bold mb-6">
               Capabilities
@@ -136,7 +136,7 @@ const FooterWithCTA = () => {
             </ul>
           </div>
 
-          {/* 4. Contact Info */}
+       
           <div>
             <h3 className="font-serif text-white text-lg font-bold mb-6">
               Get in Touch
@@ -172,7 +172,7 @@ const FooterWithCTA = () => {
           </div>
         </div>
 
-        {/* Bottom Section: Copyright Bar */}
+     
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-sans text-gray-500 text-xs text-center md:text-left">
             © 2026 White Marble Production. All rights reserved.

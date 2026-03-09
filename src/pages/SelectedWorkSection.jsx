@@ -4,22 +4,20 @@ import { X, Play, ChevronLeft, ChevronRight } from "lucide-react";
 const SelectedWorkSection = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
- 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
- 
   const projects = [
     { id: 1, title: "Hyundai Father’s Day", videoUrl: "/1.mp4" },
-    { id: 2, title: "Samsung Commercial", videoUrl: "/2.mp4" },
-    { id: 3, title: "HDFC Life", videoUrl: "/3.mp4" },
-    { id: 4, title: "Vivo Campaign", videoUrl: "/4.mp4" },
-    { id: 5, title: "Zovo Film", videoUrl: "/5.mp4" },
-    { id: 6, title: "Little Campaign", videoUrl: "/6.mp4" },
-    { id: 7, title: "Oppo Festival", videoUrl: "/7.mp4" },
+    { id: 2, title: "Fiesta", videoUrl: "/2.mp4" },
+    { id: 3, title: "IFP", videoUrl: "/3.mp4" },
+    { id: 4, title: "Samsung Galaxy S25 Ultra", videoUrl: "/4.mp4" },
+    { id: 5, title: "Vivo X3500", videoUrl: "/5.mp4" },
+    { id: 6, title: "Galaxy S25 Ultra", videoUrl: "/6.mp4" },
+    { id: 7, title: "Vivo X300", videoUrl: "/7.mp4" },
     { id: 8, title: "Vivo Launch", videoUrl: "/8.mp4" },
-    { id: 9, title: "Backbenchers", videoUrl: "/9.mp4" },
-    { id: 10, title: "Perfectly Insane", videoUrl: "/10.mp4" },
+    { id: 9, title: "Vivo", videoUrl: "/9.mp4" },
+    { id: 10, title: "Vovo X300", videoUrl: "/10.mp4" },
   ];
 
   const indexOfLastItem = currentPage * itemsPerPage;
